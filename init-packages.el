@@ -44,10 +44,16 @@
 ;;(when (memq window-system '(mac ns))
 ;;  (exec-path-from-shell-initialize))
 
-(global-company-mode 1)
+(global-hungry-delete-mode)
+
+(require 'smartparens-config)
+;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
+(smartparens-global-mode t)
 
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
+
+(global-company-mode 1)
 
 ;; load custom themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
