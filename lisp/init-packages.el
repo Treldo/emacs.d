@@ -24,6 +24,7 @@
 		      swiper
 		      counsel
 		      popwin
+		      reveal-in-osx-finder
 		      ) "Default packages")
 
 (setq package-selected-packages my/packages)

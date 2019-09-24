@@ -37,6 +37,30 @@
 	(indent-buffer)
 	(message "Indent buffer.")))))
 
-(global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+(setq hippie-expand-try-function-list '(try-expand-debbrev
+					try-expand-debbrev-all-buffers
+					try-expand-debbrev-from-kill
+					try-complete-file-name-partially
+					try-complete-file-name
+					try-expand-all-abbrevs
+					try-expand-list
+					try-expand-line
+					try-complete-lisp-symbol-partially
+					try-complete-lisp-symbol))
+
+;; Use "y-or-no" to replace "yes-or-no".
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; Delete and copy files always with recursive.
+(setq dired-recursive-copies 'always)
+(setq dired-recursive-deletes 'always)
+
+(put 'dired-find-alternate-file 'disabled nil)
+
+;; 打开当前文件所在目录的 Dired with "C-x C-j"
+(require 'dired-x)
+
+;; 在 Dired 中进行文件复制自动确定文件路径
+(setq dired-dwin-target t)
 
 (provide 'init-better-defaults)
