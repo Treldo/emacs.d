@@ -4,6 +4,10 @@
 
 (setq inhibit-splash-screen t)
 
+;; load custom themes
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(load-theme 'dracula t)
+
 ;; screen maximized
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 
@@ -38,6 +42,5 @@
 				     '(-3 . "%P")
 				     "-%-"))
 (nyan-mode t)
-(setq-default nyan-wavy-trail t)
 
 (provide 'init-ui)

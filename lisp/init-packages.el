@@ -62,10 +62,6 @@
 
 (global-company-mode 1)
 
-;; load custom themes
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'dracula t)
-
 (require 'popwin)
 (popwin-mode t)
 
