@@ -38,7 +38,6 @@
 				     '(-3 . "%P")
 				     "-%-"))
 (nyan-mode t)
-(nyan-start-animation)
 (setq-default nyan-wavy-trail t)
 
 (provide 'init-ui)
