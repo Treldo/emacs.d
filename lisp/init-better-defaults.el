@@ -63,4 +63,14 @@
 ;; 在 Dired 中进行文件复制自动确定文件路径
 (setq dired-dwin-target t)
 
+
+(setq default-tab-width 4)
+
+(setq-default indent-tabs-mode nil)
+
+(setq c-default-style "linux")
+
+(setq c-basic-offset 4)
+
+
 (provide 'init-better-defaults)
