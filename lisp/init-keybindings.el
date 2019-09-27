@@ -20,9 +20,9 @@
 ;; Provide completion when company-mode doesn't work.
 (global-set-key (kbd "s-/") 'hippie-expand)
 
-;;;;;;;;;;;;;;;;;;;; "~/.emacs.d/lisp/init-better-defaults" ;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;; "~/.emacs.d/lisp/init-better-defaults" ;;;;;;;;;;
 
-;; 对选中内容的格式化
+;; Format selected content.
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 
 ;; 主动加载 Dired Mode
@@ -33,6 +33,7 @@
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;; "~/.emacs.d/lisp/init-packages" ;;;;;;;;;;
 
 (provide 'init-keybindings)
