@@ -34,6 +34,8 @@
                       js2-mode
                       js2-refactor
                       web-mode
+                      expand-region
+                      iedit
 		      ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -95,7 +97,6 @@
 
 ;; Config for js2-refactor
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
-(js2r-add-keybindings-with-prefix "C-c C-m")
 
 (ivy-mode t)
 (setq ivy-use-virtual-buffers t)
@@ -105,7 +106,6 @@
 (require 'popwin)
 (popwin-mode t)
 
-(require 'company-tabnine)
 (add-to-list 'company-backends #'company-tabnine)
 ;; Trigger completion immediately.
 (setq company-idle-delay 0)

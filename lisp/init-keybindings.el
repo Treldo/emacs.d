@@ -36,4 +36,8 @@
 
 ;;;;;;;;;; "~/.emacs.d/lisp/init-packages" ;;;;;;;;;;
 
+(js2r-add-keybindings-with-prefix "C-c C-m")
+
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 (provide 'init-keybindings)
