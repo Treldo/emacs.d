@@ -11,7 +11,7 @@
 ;; screen maximized
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 
-(set-default-font "Monaco-14")
+(set-default-font "Monaco-16")
 
 (set-face-attribute 'default nil :height 150)
 
