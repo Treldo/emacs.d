@@ -1,3 +1,4 @@
+
 (setq enable-recursive-minibuffers t)
 ;; enable this if you want `swiper' to use it
 ;; (setq search-default-mode #'char-fold-to-regexp)
@@ -33,11 +34,14 @@
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
-
 ;;;;;;;;;; "~/.emacs.d/lisp/init-packages" ;;;;;;;;;;
+
+(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
 
 (js2r-add-keybindings-with-prefix "C-c C-m")
 
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+(global-set-key (kbd "C-;") 'iedit-mode)
 
 (provide 'init-keybindings)

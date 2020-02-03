@@ -49,21 +49,21 @@
 ;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (smartparens-global-mode t)
 
+;; Load files with "js2-mode" or "web-mode"
 (setq auto-mode-alist
       (append
        '(("\\.js\\'" . js2-mode)
-         ("\\.html\\'" . web-mode)
-         )
+         ("\\.html\\'" . web-mode))
        auto-mode-alist))
 
 ;; Config default tab-size of html file with web-mode.
 (defun my-web-mode-indent-setup ()
   (setq web-mode-markup-indent-offset 2) ; web-mode, html tag in html file
   (setq web-mode-css-indent-offset 2)    ; web-mode, css in html file
-  (setq web-mode-code-indent-offset 2)   ; web-mode, js code in html file
-  )
+  (setq web-mode-code-indent-offset 2))  ; web-mode, js code in html file
 (add-hook 'web-mode-hook 'my-web-mode-indent-setup)
 
+;; Reset tab-size between 2 and 4
 (defun my-toggle-web-indent ()
   (interactive)
   ;; web development
@@ -77,10 +77,7 @@
 	     (setq web-mode-code-indent-offset (if (= web-mode-code-indent-offset 2) 4 2))))
   (if (eq major-mode 'css-mode)
       (setq css-indent-offset (if (= css-indent-offset 2) 4 2)))
-
   (setq indent-tabs-mode nil))
-
-(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
 
 ;; Config for js2-refactor
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
@@ -91,4 +88,5 @@
 (global-company-mode t)
 
 (require 'popwin)
-(popwin-mode t)
+(popwin-mode 1)
+

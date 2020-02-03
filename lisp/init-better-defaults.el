@@ -1,20 +1,20 @@
 
-(setq ring-bell-function 'ignore)
-
-(global-auto-revert-mode t)
-
 (global-linum-mode 1)
+
+(delete-selection-mode 1)
+
+;; 自动加载外部修改过的文件
+(global-auto-revert-mode 1)
 
 (setq make-backup-files nil)
 (setq auto-save-default nil)
+
+(setq ring-bell-function 'ignore)
 
 ;; Open recent files
 (require 'recentf)
 (recentf-mode 1)
 (setq recentf-max-menu-item 10)
-
-(delete-selection-mode 1)
-(global-auto-revert-mode t)
 
 (define-advice show-paren-function (:around (fn) fix-show-paren-function)
   "Highlight enclosing parens."
@@ -31,6 +31,7 @@
   (interactive)
   (indent-region (point-min) (point-max)))
 
+;; 一次缩进缓冲区内的全部代码 (kbd "C-M-\\")
 (defun indent-region-or-buffer ()
   "Indent a region if selected, otherwise the whole buffer."
   (interactive)
@@ -44,6 +45,7 @@
 	(indent-buffer)
 	(message "Indent buffer.")))))
 
+;; 增强 Hippie Expand 的功能 (kbd "s-/")
 (setq hippie-expand-try-function-list '(try-expand-debbrev
 					try-expand-debbrev-all-buffers
 					try-expand-debbrev-from-kill
@@ -55,8 +57,10 @@
 					try-complete-lisp-symbol-partially
 					try-complete-lisp-symbol))
 
-;; Use "y-or-no" to replace "yes-or-no".
+;; Use "y-or-n" to replace "yes-or-no" as future choise.
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;;;; Dired Mode ;;;;
 
 ;; Delete and copy files always with recursive.
 (setq dired-recursive-copies 'always)
@@ -90,8 +94,8 @@
   "Call `occur' with a sane default."
   (interactive)
   (push (if (region-active-p)
-	    (buffer-substring-no-properties
-	     (region-beginning)
+            (buffer-substring-no-properties
+             (region-beginning)
 	     (region-end))
 	  (let ((sym (thing-at-point 'symbol)))
 	    (when (stringp sym)
@@ -99,5 +103,12 @@
 	regexp-history)
   (call-interactively 'occur))
 (global-set-key (kbd "M-s o") 'occur-dwim)
+
+;; Use "C-n" and "C-p" to choose the correct complation with "company-mode"
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
 (provide 'init-better-defaults)
