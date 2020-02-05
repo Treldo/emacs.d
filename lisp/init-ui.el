@@ -7,7 +7,7 @@
 
 ;; load custom themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'dracula t)
+(load-theme 'leuven t)
 
 ;; screen maximized
 ;; 在Mac平台, Emacs不能进入Mac原生的全屏模式,否则会导致 `make-frame' 创建时也集成原生全屏属性后造成白屏和左右滑动现象.
